@@ -1,4 +1,4 @@
-// Exemplo JSON de dados
+
 [
     { "item": 1, "description": "Produto 1", "stock": 10, "value": 55.9 }, 
     { "item": 2, "description": "Produto 2", "stock": null, "value": 12.9 }, 

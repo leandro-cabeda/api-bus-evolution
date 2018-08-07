@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const teste = require('./teste_dados.json');
+const teste = require('./teste_dados.js');
 const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
@@ -16,13 +16,15 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+app.listen(port, function () {
+    console.log("Rodando na porta:", port);
+});
+
 app.get('/', function (req, res) {
     res.send("Funcionou!");
 });
 
-app.listen(port, function () {
-    console.log("Rodando na porta:", port);
-});
+
 //Importantes!
 
 // Exemplos abaixo!!
@@ -43,14 +45,14 @@ app.get('/stock/:itemid/:qtd', function (req, res) {
 
 
 app.get('/item/:itemid', function (req, res) {
-    let id = req.params.itemid
-    console.log("ID que veio do parametro: " + id)
-    let item = data.find(i => i.item == id)
+    let id = req.params.itemid;
+    console.log("ID que veio do parametro: " + id);
+    let item = data.find(i => i.item == id);
 
     if (item != null) {
-        res.status(200).json({ "Descrição:": item.description, "Valor:": item.value })
+        res.status(200).json({ "Descrição:": item.description, "Valor:": item.value });
     } else {
-        res.status(401).json("Não foi encontrado nada desse tipo de produto!!")
+        res.status(401).json("Não foi encontrado nada desse tipo de produto!!");
     }
 
 });
