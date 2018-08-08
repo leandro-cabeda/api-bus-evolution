@@ -1,7 +1,219 @@
 
 [
-    { "item": 1, "description": "Produto 1", "stock": 10, "value": 55.9 }, 
-    { "item": 2, "description": "Produto 2", "stock": null, "value": 12.9 }, 
-    { "item": 3, "description": "Produto 3", "stock": 10, "value": 5.76 }, 
-    { "item": 4, "description": "Produto 4", "stock": 10, "value": 89.9 }
+    { "linha": "Vera Cruz-Sao Cristovao", 
+      "horarios":{
+          "dias":{
+              "veracruz":[
+                  "06:22","06:42","07:02"
+              ],
+              "centro":[
+                  "06:40","07:00","07:20"
+              ],
+              "saocristovao":[
+                  "07:02","07:22","07:42"
+              ]
+          },
+          "sabados":{
+              "veracruz": [
+                "06:38",
+                "07:04",
+                "07:30"
+            ],
+            "centro": [
+                "06:55",
+                "07:21",
+                "07:47"
+            ],
+            "saocristovao": [
+                "07:17",
+                "07:43",
+                "08:09"
+            ]
+
+          },
+          "domingos_feriados":{
+              "veracruz": [
+                "06:25",
+                "06:58",
+                "07:31"
+            ],
+            "centro": [
+                "06:40",
+                "07:13",
+                "07:46"
+            ],
+            "saocristovao": [
+                "06:58",
+                "07:31",
+                "08:04"
+            ]
+
+          }
+      }
+    }, 
+    { "linha": "Edmundo Trein-Sao Jose", 
+        "horarios": {
+            "dias": {
+                "etrein": [
+                    "06:19",
+                    "06:36",
+                    "06:53"
+                ],
+                "centro": [
+                    "06:40",
+                    "06:57",
+                    "07:14"
+                ],
+                "saojose": [
+                    "07:02",
+                    "07:19",
+                    "07:36"
+                ]
+            },
+            "sabados": {
+                "etrein": [
+                    "06:24",
+                    "06:50",
+                    "07:16"
+                ],
+                "centro": [
+                    "06:43",
+                    "07:09",
+                    "07:35"
+                ],
+                "saojose": [
+                    "07:03",
+                    "07:29",
+                    "07:55"
+                ]
+            },
+            "domingos_feriados": {
+                "etrein": [
+                    "06:24",
+                    "07:01",
+                    "07:38"
+                ],
+                "centro": [
+                    "06:42",
+                    "07:19",
+                    "07:56"
+                ],
+                "saojose": [
+                    "07:01",
+                    "07:38",
+                    "08:15"
+                ]
+            }
+        }
+    }, 
+    { "linha": "Jerônimo Coelho-Universidade", 
+        "horarios": {
+            "dias": {
+                "veracruz": [
+                    "06:22",
+                    "06:42",
+                    "07:02"
+                ],
+                "centro": [
+                    "06:40",
+                    "07:00",
+                    "07:20"
+                ],
+                "saocristovao": [
+                    "07:02",
+                    "07:22",
+                    "07:42"
+                ]
+            },
+            "sabados": {
+                "veracruz": [
+                    "06:38",
+                    "07:04",
+                    "07:30"
+                ],
+                "centro": [
+                    "06:55",
+                    "07:21",
+                    "07:47"
+                ],
+                "saocristovao": [
+                    "07:17",
+                    "07:43",
+                    "08:09"
+                ]
+            },
+            "domingos_feriados": {
+                "veracruz": [
+                    "06:25",
+                    "06:58",
+                    "07:31"
+                ],
+                "centro": [
+                    "06:40",
+                    "07:13",
+                    "07:46"
+                ],
+                "saocristovao": [
+                    "06:58",
+                    "07:31",
+                    "08:04"
+                ]
+            }
+        }
+    }, 
+    { "linha": "Universidade-Vila Luiza", 
+      "horarios": {
+        "dias": {
+            "veracruz": [
+                "06:22",
+                "06:42",
+                "07:02"
+            ],
+            "centro": [
+                "06:40",
+                "07:00",
+                "07:20"
+            ],
+            "saocristovao": [
+                "07:02",
+                "07:22",
+                "07:42"
+            ]
+        },
+        "sabados": {
+            "veracruz": [
+                "06:38",
+                "07:04",
+                "07:30"
+            ],
+            "centro": [
+                "06:55",
+                "07:21",
+                "07:47"
+            ],
+            "saocristovao": [
+                "07:17",
+                "07:43",
+                "08:09"
+            ]
+        },
+        "domingos_feriados": {
+            "veracruz": [
+                "06:25",
+                "06:58",
+                "07:31"
+            ],
+            "centro": [
+                "06:40",
+                "07:13",
+                "07:46"
+            ],
+            "saocristovao": [
+                "06:58",
+                "07:31",
+                "08:04"
+            ]
+        }
+    }
+    }
 ]
