@@ -49,7 +49,7 @@ app.get('/api/auth', function (req, res) {
     let [username, password] = decodAuth(req.headers.authorization);
 
         // Compara os valores de usuário e senha enviados com o objeto em memória
-        if (username === "leandro" && password === "963852741Lcr30") {
+        if (username === "leandro" && password === "123456") {
             // Se o login e senha estiverem corretos gera o token com um tempo de vida de 1 hora
             let token = jwt.sign({
                 login: username,
@@ -60,7 +60,7 @@ app.get('/api/auth', function (req, res) {
             res.status(200).json({
                 loged: true,
                 jwt: token
-            })
+            });
         } else {
             // Se não o login e senha não estiverem corretos seta o cabeçalho da resposta exigindo autenticação
             res.set('WWW-Authenticate', 'Basic realm="401"');
