@@ -43,7 +43,7 @@ app.get('/buscalinhas', function (req, res) {
     res.send(data);
 });
 
-pp.get('/api/auth', function (req, res) {
+app.get('/api/auth', function (req, res) {
     // Decodifica o valor de authorization, passado no header da requisição
     let [username, password] = decodAuth(req.headers.authorization);
 
@@ -51,7 +51,8 @@ pp.get('/api/auth', function (req, res) {
         if (username === "leandro" && password === "963852741Lcr30") {
             // Se o login e senha estiverem corretos gera o token com um tempo de vida de 1 hora
             let token = jwt.sign({
-                login: "leandro"
+                login: username,
+                password: password
             }, secret,
                 { expiresIn: 60 * 60 });
             // Responde com o status de logado como verdadeiro e o token gerado
