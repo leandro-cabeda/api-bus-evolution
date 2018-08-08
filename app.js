@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const teste = require('./teste_dados.js');
+const data = require('./teste_dados.js');
 const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
