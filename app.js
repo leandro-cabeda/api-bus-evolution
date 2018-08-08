@@ -22,7 +22,7 @@ app.listen(port, function () {
 
 app.get('/', function (req, res) {
     res.send("funcionou!!");
-    res.status(200).json("funcionou!");
+    //res.status(200).json("funcionou!");
 });
 
 
@@ -49,7 +49,7 @@ app.get('/item/:itemid', function (req, res) {
     let id = req.params.itemid;
     console.log("ID que veio do parametro: " + id);
     //let item = data.find(i => i.item == id);
-    console.log("Data que veio: "+data.item);
+    //console.log("Data que veio: "+data.item);
 
    /* if (item != null) {
         res.status(200).json({ "Descrição:": item.description, "Valor:": item.value });
