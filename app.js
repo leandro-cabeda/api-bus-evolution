@@ -21,7 +21,7 @@ app.listen(port, function () {
 });
 
 app.get('/', function (req, res) {
-    res.send("funcionou!!");
+    res.status(200).send("funcionou!!").json("funcionou!");
     //res.status(200).json("funcionou!");
 });
 
