@@ -53,7 +53,6 @@ app.get('/item/:itemid', function (req, res) {
     let id = req.params.itemid;
     console.log("ID que veio do parametro: " + id);
     let item = data.find(i => i.item == id);
-    console.log("Dado que veio: "+item.value);
 
    if (item != null) {
         res.status(200).json({ "Descrição:": item.description, "Valor:": item.value });
