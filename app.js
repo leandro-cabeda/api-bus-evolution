@@ -11,6 +11,7 @@ const path = require("path");
 const sqlite3 = require("sqlite3");
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
+const redirectPath = "/api/auth";
 
 //Importantes inicio!!
 app.use(bodyParser.json());
@@ -27,21 +28,21 @@ app.get('/', function (req, res) {
     
 });
 
+app.get('/buscalinhas', function (req, res) {
+    res.send(data);
+});
+
 
 //Importantes fim!
 
 
 // Exemplos inicio!!
-const redirectPath = "/api/auth";
+
 // Função de decodificação do login e senha
 function decodAuth(authorization) {
     if (authorization === undefined) return [undefined, undefined]
     return new Buffer(authorization.split(' ')[1], 'base64').toString().split(':');
 };
-
-app.get('/buscalinhas', function (req, res) {
-    res.send(data);
-});
 
 app.get('/api/auth', function (req, res) {
     // Decodifica o valor de authorization, passado no header da requisição
