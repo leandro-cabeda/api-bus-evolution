@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const teste = require('./teste_dados.js');
-var data=teste();
+const data = require('./teste_dados.js');
 const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
@@ -22,14 +21,15 @@ app.listen(port, function () {
 });
 
 app.get('/', function (req, res) {
-    res.send("Funcionou!");
+    res.send("funcionou!!");
+    res.status(200).json("funcionou!");
 });
 
 
 //Importantes!
 
 // Exemplos abaixo!!
-app.get('/stock/:itemid/:qtd', function (req, res) {
+/*app.get('/stock/:itemid/:qtd', function (req, res) {
 
     let id = req.params.itemid;
     var qtdEstoque = req.params.qtd;
@@ -42,23 +42,24 @@ app.get('/stock/:itemid/:qtd', function (req, res) {
     } else {
         res.status(401).json("Quantidade Indisponível");
     }
-});
+});*/
 
 
 app.get('/item/:itemid', function (req, res) {
     let id = req.params.itemid;
     console.log("ID que veio do parametro: " + id);
-    let item = data.find(i => i.item == id);
+    //let item = data.find(i => i.item == id);
+    console.log("Data que veio: "+data.item);
 
-    if (item != null) {
+   /* if (item != null) {
         res.status(200).json({ "Descrição:": item.description, "Valor:": item.value });
     } else {
         res.status(401).json("Não foi encontrado nada desse tipo de produto!!");
-    }
+    }*/
 
 });
 
-
+/*
 app.post("/stock/:itemid", function (req, res) {
     var id = req.params.itemid;
     var quantidade = parseInt(req.body.quantidade);
@@ -72,11 +73,11 @@ app.post("/stock/:itemid", function (req, res) {
             if (lista[x].item == id) {
                 lista[x].stock += quantidade;
                 res.status(200).json(lista[x]);
-                fs.writeFile("./data.json", JSON.stringify(lista));
+                fs.writeFile("./teste_dados.js", JSON.stringify(lista));
             }
             x++;
         }
 
     }
-});
+});*/
 // Exemplos acima!!
