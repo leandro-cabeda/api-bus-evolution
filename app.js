@@ -41,19 +41,24 @@ app.get('/buscalinhas', function (req, res) {
 // Função de decodificação do login e senha
 function decodAuth(authorization) {
     if (authorization === undefined) return [undefined, undefined]
+    console.log("Valor que veio da autorização:  "+authorization);
     return new Buffer(authorization.split(' ')[1], 'base64').toString().split(':');
 };
 
 app.get('/api/auth', function (req, res) {
     // Decodifica o valor de authorization, passado no header da requisição
+    console.log("Valor da req Get:  " + req.headers.authorization);
     let [username, password] = decodAuth(req.headers.authorization);
 
+    console.log("Valor do username que veio:  " + username);
+    console.log("Valor do password que veio:  " + password);
+
         // Compara os valores de usuário e senha enviados com o objeto em memória
-        if (username === "leandro" && password === "123456") {
+        if (username === "leandro" && password === secret) {
             // Se o login e senha estiverem corretos gera o token com um tempo de vida de 1 hora
             let token = jwt.sign({
                 login: username,
-                password: password
+                password: secret
             }, secret,
                 { expiresIn: 60 * 60 });
             // Responde com o status de logado como verdadeiro e o token gerado
@@ -72,11 +77,13 @@ app.get('/api/auth', function (req, res) {
 
 app.post('/api/token', function (req, res) {
     // Recebe o token JWT pelo cabeçalho na chave autorization
+    console.log("Valor da req Post:  "+req.headers.authorization);
     let token = req.headers.authorization;
     // Caso o token tenha valor
     if (token) {
         // remove a string "bearer"
         token = req.headers.authorization.split(' ')[1];
+        console.log("Valor do token:  "+token);
         // Usa a lib jwt para verificar a autenticidade do token
         jwt.verify(token, secret, function (err, decoded) {
             // Em caso de erro
@@ -152,9 +159,11 @@ app.post("/stock/:itemid", verifyToken, function (req, res) {
 });
 
 function verifyToken(req, res, next) {
+    console.log("Valor da função verifyToken da req autorização:  " + req.headers.authorization);
     let auth = req.headers.authorization;
     if (auth) {
         auth = auth.split(' ')[1];
+        console.log("Valor do auth função verifyToken:  " + auth);
         let options = {
             method: 'POST',
             url: 'https://api-bus-evolution.herokuapp.com:80/api/token',
@@ -166,6 +175,7 @@ function verifyToken(req, res, next) {
             body = JSON.parse(body);
             if (body.loged) {
                 req.payload = body;
+                console.log("Valor do req.payload do body, função verifyToken:  " + req.payload);
             }
             next();
         })
