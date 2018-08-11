@@ -28,8 +28,54 @@ app.get('/', function (req, res) {
     
 });
 
-app.get('/buscalinhas', function (req, res) {
+app.get('/api/buscalinhas', function (req, res) {
     res.send(data);
+});
+
+app.get('/api/buscalinhas/:linha', function (req, res) {
+    var acentos = {
+        a: /[\xE0-\xE6]/g,
+        A: /[\xC0-\xC6]/g,
+        e: /[\xE8-\xEB]/g,
+        E: /[\xC8-\xCB]/g,
+        i: /[\xEC-\xEF]/g,
+        I: /[\xCC-\xCF]/g,
+        o: /[\xF2-\xF6]/g,
+        O: /[\xD2-\xD6]/g,
+        u: /[\xF9-\xFC]/g,
+        U: /[\xD9-\xDC]/g,
+        c: /\xE7/g,
+        C: /\xC7/g,
+        n: /\xF1/g,
+        N: /\xD1/g
+    };
+
+    
+    let linha = req.params.linha.toLocaleUpperCase();
+
+    while (linha.indexOf(" ") != -1)
+    {
+        linha = linha.replace(" ", "");
+    }
+
+
+    for (let i in acentos) {
+       
+        linha = linha.replace(acentos[i],i);
+    }
+  
+    console.log("Linha que veio do parametro: " + linha);
+
+    let bus = data.filter(i => i.linha.includes(linha));
+    //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
+    
+
+    if (bus != null && bus != undefined) {
+        res.status(200).json(bus);
+    } else {
+        res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
+    }
+
 });
 
 
@@ -54,11 +100,10 @@ app.get('/api/auth', function (req, res) {
     console.log("Valor do password que veio:  " + password);
 
         // Compara os valores de usuário e senha enviados com o objeto em memória
-        if (username === "leandro" && password === secret) {
+        if (username === "leandro" && password === "123456") {
             // Se o login e senha estiverem corretos gera o token com um tempo de vida de 1 hora
             let token = jwt.sign({
                 login: username,
-                password: secret
             }, secret,
                 { expiresIn: 60 * 60 });
             // Responde com o status de logado como verdadeiro e o token gerado
@@ -150,7 +195,7 @@ app.post("/stock/:itemid", verifyToken, function (req, res) {
             if (lista[x].item == id) {
                 lista[x].stock += quantidade;
                 res.status(200).json(lista[x]);
-                fs.writeFile("./teste_dados.js", JSON.stringify(lista));
+                fs.writeFile("./produtos_dados.js", JSON.stringify(lista));
             }
             x++;
         }
@@ -173,6 +218,7 @@ function verifyToken(req, res, next) {
         request(options, function (error, response, body) {
             if (error) throw new Error(error);
             body = JSON.parse(body);
+            console.log("Valor do Body:  "+body);
             if (body.loged) {
                 req.payload = body;
                 console.log("Valor do req.payload do body, função verifyToken:  " + req.payload);

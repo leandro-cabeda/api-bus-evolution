@@ -1,6 +1,6 @@
 
 [
-    { "linha": "Vera Cruz Sao Cristovao", 
+    { "linha": "VERACRUZ SAOCRISTOVAO",
       "horarios":{
           "dias":{
               "veracruz":[
@@ -51,7 +51,7 @@
           }
       }
     }, 
-    { "linha": "Edmundo Trein Sao Jose", 
+    { "linha": "EDMUNDOTREIN SAOJOSE", 
         "horarios": {
             "dias": {
                 "etrein": [
@@ -106,7 +106,7 @@
             }
         }
     }, 
-    { "linha": "Jeronimo Coelho Universidade", 
+    { "linha": "JERONIMOCOELHO UNIVERSIDADE", 
         "horarios": {
             "dias": {
                 "jcoelho": [
@@ -161,7 +161,7 @@
             }
         }
     }, 
-    { "linha": "Universidade Vila Luiza", 
+    { "linha": "UNIVERSIDADE VILALUIZA", 
       "horarios": {
         "dias": {
             "vluiza": [
