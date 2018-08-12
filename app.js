@@ -24,15 +24,18 @@ app.listen(port, function () {
 });
 
 app.get('/', function (req, res) {
-    res.json("funcionou!!");
+    console.log("Deu certo o inicio!");
+    res.status(200).json("funcionou!!");
     
 });
 
 app.get('/api/buscalinhas', function (req, res) {
-    res.send(data);
+    console.log("Deu certo a busca de linhas!");
+    res.status(200).json(data);
 });
 
 app.get('/api/buscalinhas/:linha', function (req, res) {
+    console.log("Deu certo a busca pela linha pedida!");
     var acentos = {
         a: /[\xE0-\xE6]/g,
         A: /[\xC0-\xC6]/g,

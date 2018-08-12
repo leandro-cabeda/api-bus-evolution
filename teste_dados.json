@@ -1,219 +1,352 @@
-
 [
-    { "linha": "VERACRUZ SAOCRISTOVAO",
-      "horarios":{
-          "dias":{
-              "veracruz":[
-                  "06:22","06:42","07:02"
-              ],
-              "centro":[
-                  "06:40","07:00","07:20"
-              ],
-              "saocristovao":[
-                  "07:02","07:22","07:42"
-              ]
-          },
-          "sabados":{
-              "veracruz": [
-                "06:38",
-                "07:04",
-                "07:30"
-            ],
-            "centro": [
-                "06:55",
-                "07:21",
-                "07:47"
-            ],
-            "saocristovao": [
-                "07:17",
-                "07:43",
-                "08:09"
-            ]
-
-          },
-          "domingos_feriados":{
-              "veracruz": [
-                "06:25",
-                "06:58",
-                "07:31"
-            ],
-            "centro": [
-                "06:40",
-                "07:13",
-                "07:46"
-            ],
-            "saocristovao": [
-                "06:58",
-                "07:31",
-                "08:04"
-            ]
-
-          }
-      }
-    }, 
-    { "linha": "EDMUNDOTREIN SAOJOSE", 
-        "horarios": {
-            "dias": {
-                "etrein": [
-                    "06:19",
-                    "06:36",
-                    "06:53"
-                ],
-                "centro": [
-                    "06:40",
-                    "06:57",
-                    "07:14"
-                ],
-                "saojose": [
-                    "07:02",
-                    "07:19",
-                    "07:36"
-                ]
-            },
-            "sabados": {
-                "etrein": [
-                    "06:24",
-                    "06:50",
-                    "07:16"
-                ],
-                "centro": [
-                    "06:43",
-                    "07:09",
-                    "07:35"
-                ],
-                "saojose": [
-                    "07:03",
-                    "07:29",
-                    "07:55"
-                ]
-            },
-            "domingos_feriados": {
-                "etrein": [
-                    "06:24",
-                    "07:01",
-                    "07:38"
-                ],
-                "centro": [
-                    "06:42",
-                    "07:19",
-                    "07:56"
-                ],
-                "saojose": [
-                    "07:01",
-                    "07:38",
-                    "08:15"
-                ]
-            }
-        }
-    }, 
-    { "linha": "JERONIMOCOELHO UNIVERSIDADE", 
-        "horarios": {
-            "dias": {
-                "jcoelho": [
-                    "06:21",
-                    "06:39",
-                    "06:57"
-                ],
-                "centro": [
-                    "06:40",
-                    "07:02",
-                    "07:20"
-                ],
-                "upf": [
-                    "06:55",
-                    "07:24",
-                    "07:42"
-                ]
-            },
-            "sabados": {
-                "jcoelho": [
-                    "06:21",
-                    "06:50",
-                    "07:19"
-                ],
-                "centro": [
-                    "06:44",
-                    "07:13",
-                    "07:42"
-                ],
-                "upf": [
-                    "07:05",
-                    "07:34",
-                    "08:03"
-                ]
-            },
-            "domingos_feriados": {
-                "jcoelho": [
-                    "06:22",
-                    "07:02",
-                    "07:42"
-                ],
-                "centro": [
-                    "06:43",
-                    "07:23",
-                    "08:03"
-                ],
-                "upf": [
-                    "07:02",
-                    "07:42",
-                    "08:22"
-                ]
-            }
-        }
-    }, 
-    { "linha": "UNIVERSIDADE VILALUIZA", 
-      "horarios": {
+    {
+        "linha": "VERACRUZ SAOCRISTOVAO",
         "dias": {
-            "vluiza": [
-                "06:15",
-                "06:41",
-                "07:07"
-            ],
-            "centro": [
-                "06:30",
-                "06:56",
-                "07:22"
-            ],
-            "upf": [
-                "06:56",
-                "07:22",
-                "07:48"
+            "bairros": [
+                {
+                    "nome": "veracruz",
+                    "horarios": [
+                        "06:22",
+                        "06:42",
+                        "07:02"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:40",
+                        "07:00",
+                        "07:20"
+                    ]
+                },
+                {
+                    "nome": "saocristovao",
+                    "horarios": [
+                        "07:02",
+                        "07:22",
+                        "07:42"
+                    ]
+                }
             ]
         },
         "sabados": {
-            "vluiza": [
-                "06:34",
-                "07:08",
-                "07:42"
-            ],
-            "centro": [
-                "06:48",
-                "07:22",
-                "07:56"
-            ],
-            "upf": [
-                "07:08",
-                "07:42",
-                "08:16"
+            "bairros": [
+                {
+                    "nome": "veracruz",
+                    "horarios": [
+                        "06:38",
+                        "07:04",
+                        "07:30"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:55",
+                        "07:21",
+                        "07:47"
+                    ]
+                },
+                {
+                    "nome": "saocristovao",
+                    "horarios": [
+                        "07:17",
+                        "07:43",
+                        "08:09"
+                    ]
+                }
             ]
         },
         "domingos_feriados": {
-            "vluiza": [
-                "06:36",
-                "07:24",
-                "08:12"
-            ],
-            "centro": [
-                "06:49",
-                "07:37",
-                "08:25"
-            ],
-            "prefeitura": [
-                "07:00",
-                "07:48",
-                "08:36"
+            "bairros": [
+                {
+                    "nome": "veracruz",
+                    "horarios": [
+                        "06:25",
+                        "06:58",
+                        "07:31"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:40",
+                        "07:13",
+                        "07:46"
+                    ]
+                },
+                {
+                    "nome": "saocristovao",
+                    "horarios": [
+                        "06:58",
+                        "07:31",
+                        "08:04"
+                    ]
+                }
             ]
         }
-    }
+    },
+    {
+        "linha": "EDMUNDOTREIN SAOJOSE",
+        "dias": {
+            "bairros": [
+                {
+                    "nome": "edmundotrein",
+                    "horarios": [
+                        "06:19",
+                        "06:36",
+                        "06:53"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:40",
+                        "06:57",
+                        "07:14"
+                    ]
+                },
+                {
+                    "nome": "saojose",
+                    "horarios": [
+                        "07:02",
+                        "07:19",
+                        "07:36"
+                    ]
+                }
+            ]
+        },
+        "sabados": {
+            "bairros": [
+                {
+                    "nome": "edmundotrein",
+                    "horarios": [
+                        "06:24",
+                        "06:50",
+                        "07:16"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:43",
+                        "07:09",
+                        "07:35"
+                    ]
+                },
+                {
+                    "nome": "saojose",
+                    "horarios": [
+                        "07:03",
+                        "07:29",
+                        "07:55"
+                    ]
+                }
+            ]
+        },
+        "domingos_feriados": {
+            "bairros": [
+                {
+                    "nome": "edmundotrein",
+                    "horarios": [
+                        "06:24",
+                        "07:01",
+                        "07:38"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:40",
+                        "07:02",
+                        "07:20"
+                    ]
+                },
+                {
+                    "nome": "saojose",
+                    "horarios": [
+                        "07:01",
+                        "07:38",
+                        "08:15"
+                    ]
+                }
+            ]
+        }
+
+    },
+    {
+        "linha": "JERONIMOCOELHO UNIVERSIDADE UPF",
+        "dias": {
+            "bairros": [
+                {
+                    "nome": "jeronimocoelho",
+                    "horarios": [
+                        "06:21",
+                        "06:39",
+                        "06:57"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:40",
+                        "07:02",
+                        "07:20"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "06:55",
+                        "07:24",
+                        "07:42"
+                    ]
+                }
+            ]
+        },
+        "sabados": {
+            "bairros": [
+                {
+                    "nome": "jeronimocoelho",
+                    "horarios": [
+                        "06:21",
+                        "06:50",
+                        "07:19"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:44",
+                        "07:13",
+                        "07:42"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "07:05",
+                        "07:34",
+                        "08:03"
+                    ]
+                }
+            ]
+        },
+        "domingos_feriados": {
+            "bairros": [
+                {
+                    "nome": "jeronimocoelho",
+                    "horarios": [
+                        "06:22",
+                        "07:02",
+                        "07:42"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                       "06:43",
+                       "07:23",
+                       "08:03"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "07:02",
+                        "07:42",
+                        "08:22"
+                    ]
+                }
+            ]
+        }
+
+    },
+    {
+        "linha": "UNIVERSIDADE UPF VILALUIZA",
+        "dias": {
+            "bairros": [
+                {
+                    "nome": "vilaluiza",
+                    "horarios": [
+                        "06:15",
+                        "06:41",
+                        "07:07"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:30",
+                        "06:56",
+                        "07:22"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "06:56",
+                        "07:22",
+                        "07:48"
+                    ]
+                }
+            ]
+        },
+        "sabados": {
+            "bairros": [
+                {
+                    "nome": "vilaluiza",
+                    "horarios": [
+                        "06:34",
+                        "07:08",
+                        "07:42"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:48",
+                        "07:22",
+                        "07:56"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "07:08",
+                        "07:42",
+                        "08:16"
+                    ]
+                }
+            ]
+        },
+        "domingos_feriados": {
+            "bairros": [
+                {
+                    "nome": "vilaluiza",
+                    "horarios": [
+                       "06:36",
+                       "07:24",
+                       "08:12"
+                    ]
+                },
+                {
+                    "nome": "centro",
+                    "horarios": [
+                        "06:49",
+                        "07:37",
+                        "08:25"
+                    ]
+                },
+                {
+                    "nome": "upf",
+                    "horarios": [
+                        "07:00",
+                        "07:48",
+                        "08:36"
+                    ]
+                }
+            ]
+        }
     }
 ]
