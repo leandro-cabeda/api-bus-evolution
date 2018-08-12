@@ -73,7 +73,7 @@ app.get('/api/buscalinhas/:linha', function (req, res) {
     //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
     
 
-    if (bus != null && bus != undefined) {
+    if (bus != null && bus != undefined && bus !="") {
         res.status(200).json(bus);
     } else {
         res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
