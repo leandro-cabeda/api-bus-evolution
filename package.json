@@ -15,6 +15,7 @@
     "homepage": "https://github.com/leandro-cabeda",
     "dependencies": {
         "body-parser": "^1.18.3",
+        "cors": "^2.8.4",
         "express": "^4.16.3",
         "file": "^0.2.2",
         "file-system": "^2.2.2",
@@ -23,6 +24,7 @@
         "http": "0.0.0",
         "http-client": "^4.3.1",
         "httpclient": "^0.1.0",
+        "https": "^1.0.0",
         "jsonwebtoken": "^8.3.0",
         "path": "^0.12.7",
         "request": "^2.87.0",

@@ -5,6 +5,7 @@ const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
 const fs = require("fs");
+const cors = require('cors');
 const httpclient = require("http-client");
 const path = require("path");
 //const sqlite = require("sqlite");
@@ -12,29 +13,107 @@ const sqlite3 = require("sqlite3");
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
 const redirectPath = "/api/auth";
+const https = require('https');
+
+
+// Teste Inicio
+const extractIpParameter = () =>
+    process.argv[2] ? process.argv[2] : 'localhost';
+
+const ip = extractIpParameter();
+app.set('ip', ip);
+
+const usuario = {
+    "id": 1,
+    "nome": "leandro cabeda",
+    "email":"leandro.cabeda@hotmail.com",
+    "senha": "12345"
+};
+
+const headers = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Authorization": "Basic MGJlOGMxZGEtMDY3Ni00NWY3LWI0ZjYtMjRjMjYzMzhmZmEz"
+};
+
+const options = {
+    host: "onesignal.com",
+    port: 443,
+    path: "/api/v1/notifications",
+    method: "POST",
+    headers: headers
+};
+
+const message = {
+    app_id: "e53f5d24-40e4-458f-99db-5230cf3f8bc0",
+    headings: { "en": "Leandro" },
+    contents: { "en": "Registro confirmado!" },
+};
+
+const req = https.request(options, function (res) {
+    res.on('data', function (data) {
+        //console.log("Response:");
+        //console.log(JSON.parse(data));
+    });
+});
+
+req.on('error', function (e) {
+    console.log("ERROR:");
+    console.log(e);
+});
+
+req.write(JSON.stringify(message));
+req.end();
+
+app.post('/api/login', (req, res) => {
+    let usuarioLogin = req.body;
+
+    if (usuarioLogin.email == usuario.email
+        && usuarioLogin.senha == usuario.senha) {
+
+        res.json(usuario);
+    } else {
+        res.status(403).end();
+    }
+});
+
+// Teste Fim!
 
 //Importantes inicio!!
+app.use(cors());
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
 app.listen(port, function () {
-    console.log("Rodando na porta:", port);
+    console.log(`Servidor rodando em http://${ip}:`+port);
 });
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
     console.log("Deu certo o inicio!");
     res.status(200).json("funcionou!!");
     
 });
 
-app.get('/api/buscalinhas', function (req, res) {
+const v=[
+    {
+        "linha":"VERACRUZ SAOCRISTOVAO"
+    },
+    {
+        "linha": "UPFUNIVERSIDADEUPF VILALUIZA"
+    },
+    {
+        "linha": "JERONIMOCOELHO UPFUNIVERSIDADEUPF"
+    }
+]
+app.get('/api/buscalinhas', function (req, res, next) {
     console.log("Deu certo a busca de linhas!");
-    res.status(200).json(data);
+    //res.status(200).json(data);
+    res.status(200).json(v);
 });
 
-app.get('/api/buscalinhas/:linha', function (req, res) {
+app.get('/api/buscalinhas/:linha', function (req, res, next) {
     console.log("Deu certo a busca pela linha pedida!");
     var acentos = {
         a: /[\xE0-\xE6]/g,
