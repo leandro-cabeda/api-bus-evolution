@@ -14,6 +14,8 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
 const redirectPath = "/api/auth";
 const https = require('https');
+//const http = require('http');
+
 
 
 // Teste Inicio
@@ -32,19 +34,21 @@ const usuario = {
 
 const headers = {
     "Content-Type": "application/json; charset=utf-8",
-    "Authorization": "Basic MGJlOGMxZGEtMDY3Ni00NWY3LWI0ZjYtMjRjMjYzMzhmZmEz"
+    "Authorization": "Basic bGVhbmRyby5jYWJlZGFAaG90bWFpbC5jb206MTIzNDU=",
+    //"Access-Control-Allow-Origin": "*"
 };
 
 const options = {
-    host: "onesignal.com",
+    host: "api-bus-evolution.herokuapp.com",
     port: 443,
-    path: "/api/v1/notifications",
+    path: "/api/login",
     method: "POST",
-    headers: headers
+    //method: "GET",
+    headers: headers,
 };
 
 const message = {
-    app_id: "e53f5d24-40e4-458f-99db-5230cf3f8bc0",
+    app_id: "b746d492-795e-4bf5-ba62-43e735304733",
     headings: { "en": "Leandro" },
     contents: { "en": "Registro confirmado!" },
 };
@@ -90,9 +94,9 @@ app.listen(port, function () {
     console.log(`Servidor rodando em http://${ip}:`+port);
 });
 
-app.get('/', function (req, res, next) {
+app.get('/', function (req, res) {
     console.log("Deu certo o inicio!");
-    res.status(200).json("funcionou!!");
+    res.json("funcionou!!");
     
 });
 
@@ -107,13 +111,13 @@ const v=[
         "linha": "JERONIMOCOELHO UPFUNIVERSIDADEUPF"
     }
 ]
-app.get('/api/buscalinhas', function (req, res, next) {
+app.get('/api/buscalinhas', function (req, res){
     console.log("Deu certo a busca de linhas!");
     //res.status(200).json(data);
-    res.status(200).json(v);
+    res.json(v);
 });
 
-app.get('/api/buscalinhas/:linha', function (req, res, next) {
+app.get('/api/buscalinhas/:linha', function (req, res) {
     console.log("Deu certo a busca pela linha pedida!");
     var acentos = {
         a: /[\xE0-\xE6]/g,
@@ -153,7 +157,7 @@ app.get('/api/buscalinhas/:linha', function (req, res, next) {
     
 
     if (bus != null && bus != undefined && bus !="") {
-        res.status(200).json(bus);
+        res.json(bus);
     } else {
         res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
     }
