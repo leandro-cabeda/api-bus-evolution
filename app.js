@@ -12,14 +12,14 @@ const path = require("path");
 const sqlite3 = require("sqlite3");
 const jwt = require('jsonwebtoken');
 const secret = process.env.SECRET;
-const redirectPath = "/api/auth";
-const https = require('https');
+//const redirectPath = "/api/auth";
+//const https = require('https');
 //const http = require('http');
 
 
 
 // Teste Inicio
-const extractIpParameter = () =>
+/*const extractIpParameter = () =>
     process.argv[2] ? process.argv[2] : 'localhost';
 
 const ip = extractIpParameter();
@@ -78,7 +78,7 @@ app.post('/api/login', (req, res) => {
     } else {
         res.status(403).end();
     }
-});
+});*/
 
 // Teste Fim!
 
@@ -91,7 +91,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.listen(port, function () {
-    console.log(`Servidor rodando em http://${ip}:`+port);
+    //console.log(`Servidor rodando em http://${ip}:`+port);
+    console.log("Servidor rodando na porta:  "+port);
 });
 
 app.get('/', function (req, res) {
@@ -110,7 +111,8 @@ const v=[
     {
         "linha": "JERONIMOCOELHO UPFUNIVERSIDADEUPF"
     }
-]
+];
+
 app.get('/api/buscalinhas', function (req, res){
     console.log("Deu certo a busca de linhas!");
     //res.status(200).json(data);
@@ -171,7 +173,7 @@ app.get('/api/buscalinhas/:linha', function (req, res) {
 // Exemplos inicio!!
 
 // Função de decodificação do login e senha
-function decodAuth(authorization) {
+/*function decodAuth(authorization) {
     if (authorization === undefined) return [undefined, undefined]
     console.log("Valor que veio da autorização:  "+authorization);
     return new Buffer(authorization.split(' ')[1], 'base64').toString().split(':');
@@ -314,5 +316,5 @@ function verifyToken(req, res, next) {
     } else {
         next();
     }
-};
+};*/
 // Exemplos fim!!
