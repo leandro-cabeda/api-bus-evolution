@@ -5,13 +5,13 @@ const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-const cors = require('cors');
+//const cors = require('cors');
 const httpclient = require("http-client");
 const path = require("path");
 //const sqlite = require("sqlite");
 const sqlite3 = require("sqlite3");
 const jwt = require('jsonwebtoken');
-const secret = process.env.SECRET;
+//const secret = process.env.SECRET;
 //const redirectPath = "/api/auth";
 //const https = require('https');
 //const http = require('http');
@@ -83,8 +83,8 @@ app.post('/api/login', (req, res) => {
 // Teste Fim!
 
 //Importantes inicio!!
-app.use(cors());
-app.use(express.static('public'));
+//app.use(cors());
+//app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -106,10 +106,10 @@ const v=[
         "linha":"VERACRUZ SAOCRISTOVAO"
     },
     {
-        "linha": "UPFUNIVERSIDADEUPF VILALUIZA"
+        "linha": "UNIVERSIDADE UPF VILALUIZA"
     },
     {
-        "linha": "JERONIMOCOELHO UPFUNIVERSIDADEUPF"
+        "linha": "JERONIMOCOELHO UPF UNIVERSIDADE"
     }
 ];
 
@@ -139,7 +139,7 @@ app.get('/api/buscalinhas/:linha', function (req, res) {
     };
 
     
-    let linha = req.params.linha.toLocaleUpperCase();
+    let linha = req.params.linha;
 
     while (linha.indexOf(" ") != -1)
     {
@@ -154,7 +154,7 @@ app.get('/api/buscalinhas/:linha', function (req, res) {
   
     console.log("Linha que veio do parametro: " + linha);
 
-    let bus = data.filter(i => i.linha.includes(linha));
+    let bus = data.filter(i=> i.linha.toLocaleUpperCase().indexOf(linha.toLocaleUpperCase()) > -1);
     //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
     
 
