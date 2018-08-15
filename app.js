@@ -5,7 +5,7 @@ const port = process.env.PORT || 6000;
 var request = require("request");
 const bodyParser = require("body-parser");
 const fs = require("fs");
-//const cors = require('cors');
+const cors = require('cors');
 const httpclient = require("http-client");
 const path = require("path");
 //const sqlite = require("sqlite");
@@ -83,7 +83,7 @@ app.post('/api/login', (req, res) => {
 // Teste Fim!
 
 //Importantes inicio!!
-//app.use(cors());
+app.use(cors());
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
