@@ -103,7 +103,7 @@ app.get('/', function (req, res) {
 
 const v=[
     {
-        "linha":"VERACRUZ SAOCRISTOVAO"
+        "linha":"VERA CRUZ SAO CRISTOVAO"
     },
     {
         "linha": "UNIVERSIDADE UPF VILALUIZA"
