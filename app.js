@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const data = require('./teste_dados.json');
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8080;
 var request = require("request");
 const bodyParser = require("body-parser");
 const fs = require("fs");
@@ -15,6 +15,95 @@ const jwt = require('jsonwebtoken');
 //const redirectPath = "/api/auth";
 //const https = require('https');
 //const http = require('http');
+
+
+//Importantes inicio!!
+app.use(cors());
+app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.listen(port, function () {
+    //console.log(`Servidor rodando em http://${ip}:`+port);
+    console.log("Servidor rodando na porta:  "+port);
+});
+
+app.get('/', function (req, res) {
+    console.log("Deu certo o inicio!");
+    res.json("funcionou!!");
+    
+});
+
+const v=[
+    {
+        "linha":"VERA CRUZ SAO CRISTOVAO"
+    },
+    {
+        "linha": "UNIVERSIDADE UPF VILALUIZA"
+    },
+    {
+        "linha": "JERONIMOCOELHO UPF UNIVERSIDADE"
+    }
+];
+
+app.get('/api/buscalinhas', function (req, res){
+    console.log("Deu certo a busca de linhas!");
+    res.json(data);
+});
+
+app.get('/api', function (req, res) {
+    console.log("API certo!");
+    res.json("Bem vindo link API!!!");
+});
+
+app.get('/api/buscalinhas/:linha', function (req, res) {
+    console.log("Deu certo a busca pela linha pedida!");
+    var acentos = {
+        a: /[\xE0-\xE6]/g,
+        A: /[\xC0-\xC6]/g,
+        e: /[\xE8-\xEB]/g,
+        E: /[\xC8-\xCB]/g,
+        i: /[\xEC-\xEF]/g,
+        I: /[\xCC-\xCF]/g,
+        o: /[\xF2-\xF6]/g,
+        O: /[\xD2-\xD6]/g,
+        u: /[\xF9-\xFC]/g,
+        U: /[\xD9-\xDC]/g,
+        c: /\xE7/g,
+        C: /\xC7/g,
+        n: /\xF1/g,
+        N: /\xD1/g
+    };
+
+    
+    let linha = req.params.linha;
+
+    while (linha.indexOf(" ") != -1)
+    {
+        linha = linha.replace(" ", "");
+    }
+
+
+    for (let i in acentos) {
+       
+        linha = linha.replace(acentos[i],i);
+    }
+  
+    console.log("Linha que veio do parametro: " + linha);
+
+    let bus = data.filter(i=> i.linha.toLocaleUpperCase().indexOf(linha.toLocaleUpperCase()) > -1);
+    //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
+    
+
+    if (bus != null && bus != undefined && bus !="") {
+        res.json(bus);
+    } else {
+        res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
+    }
+
+});
 
 
 
@@ -81,90 +170,6 @@ app.post('/api/login', (req, res) => {
 });*/
 
 // Teste Fim!
-
-//Importantes inicio!!
-app.use(cors());
-app.use(express.static('public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-app.listen(port, function () {
-    //console.log(`Servidor rodando em http://${ip}:`+port);
-    console.log("Servidor rodando na porta:  "+port);
-});
-
-app.get('/', function (req, res) {
-    console.log("Deu certo o inicio!");
-    res.json("funcionou!!");
-    
-});
-
-const v=[
-    {
-        "linha":"VERA CRUZ SAO CRISTOVAO"
-    },
-    {
-        "linha": "UNIVERSIDADE UPF VILALUIZA"
-    },
-    {
-        "linha": "JERONIMOCOELHO UPF UNIVERSIDADE"
-    }
-];
-
-app.get('/api/buscalinhas', function (req, res){
-    console.log("Deu certo a busca de linhas!");
-    //res.status(200).json(data);
-    res.json(v);
-});
-
-app.get('/api/buscalinhas/:linha', function (req, res) {
-    console.log("Deu certo a busca pela linha pedida!");
-    var acentos = {
-        a: /[\xE0-\xE6]/g,
-        A: /[\xC0-\xC6]/g,
-        e: /[\xE8-\xEB]/g,
-        E: /[\xC8-\xCB]/g,
-        i: /[\xEC-\xEF]/g,
-        I: /[\xCC-\xCF]/g,
-        o: /[\xF2-\xF6]/g,
-        O: /[\xD2-\xD6]/g,
-        u: /[\xF9-\xFC]/g,
-        U: /[\xD9-\xDC]/g,
-        c: /\xE7/g,
-        C: /\xC7/g,
-        n: /\xF1/g,
-        N: /\xD1/g
-    };
-
-    
-    let linha = req.params.linha;
-
-    while (linha.indexOf(" ") != -1)
-    {
-        linha = linha.replace(" ", "");
-    }
-
-
-    for (let i in acentos) {
-       
-        linha = linha.replace(acentos[i],i);
-    }
-  
-    console.log("Linha que veio do parametro: " + linha);
-
-    let bus = data.filter(i=> i.linha.toLocaleUpperCase().indexOf(linha.toLocaleUpperCase()) > -1);
-    //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
-    
-
-    if (bus != null && bus != undefined && bus !="") {
-        res.json(bus);
-    } else {
-        res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
-    }
-
-});
 
 
 //Importantes fim!
