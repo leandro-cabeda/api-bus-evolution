@@ -2,6 +2,7 @@
     {
         "linha": "VERA CRUZ SAO CRISTOVAO",
         "dias": {
+            "nome": "Dias de Semana",
             "bairros": [
                 {
                     "nome": "Vera Cruz",
@@ -30,6 +31,7 @@
             ]
         },
         "sabados": {
+            "nome": "Sabado",
             "bairros": [
                 {
                     "nome": "Vera Cruz",
@@ -58,6 +60,7 @@
             ]
         },
         "domingos_feriados": {
+            "nome": "Domingo e Feriado",
             "bairros": [
                 {
                     "nome": "Vera Cruz",
@@ -89,6 +92,7 @@
     {
         "linha": "EDMUNDO TREIN SAO JOSE",
         "dias": {
+            "nome": "Dias de Semana",
             "bairros": [
                 {
                     "nome": "Edmundo Trein",
@@ -117,6 +121,7 @@
             ]
         },
         "sabados": {
+            "nome": "Sabado",
             "bairros": [
                 {
                     "nome": "Edmundo Trein",
@@ -145,6 +150,7 @@
             ]
         },
         "domingos_feriados": {
+            "nome": "Domingo e Feriado",
             "bairros": [
                 {
                     "nome": "Edmundo Trein",
@@ -177,6 +183,7 @@
     {
         "linha": "JERONIMO COELHO UPF UNIVERSIDADE",
         "dias": {
+            "nome": "Dias de Semana",
             "bairros": [
                 {
                     "nome": "Jeronimo Coelho",
@@ -205,6 +212,7 @@
             ]
         },
         "sabados": {
+            "nome": "Sabado",
             "bairros": [
                 {
                     "nome": "Jeronimo Coelho",
@@ -233,6 +241,7 @@
             ]
         },
         "domingos_feriados": {
+            "nome": "Domingo e Feriado",
             "bairros": [
                 {
                     "nome": "Jeronimo Coelho",
@@ -265,6 +274,7 @@
     {
         "linha": "UNIVERSIDADE UPF VILA LUIZA",
         "dias": {
+            "nome": "Dias de Semana",
             "bairros": [
                 {
                     "nome": "Vila Luiza",
@@ -293,6 +303,7 @@
             ]
         },
         "sabados": {
+            "nome": "Sabado",
             "bairros": [
                 {
                     "nome": "Vila Luiza",
@@ -321,6 +332,7 @@
             ]
         },
         "domingos_feriados": {
+            "nome": "Domingo e Feriado",
             "bairros": [
                 {
                     "nome": "Vila Luiza",
