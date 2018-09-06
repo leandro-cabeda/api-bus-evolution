@@ -1,6 +1,9 @@
 [
     {
         "linha": "VERA CRUZ SAO CRISTOVAO",
+        "rotas": [
+            []
+        ],
         "dias": {
             "nome": "Dias de Semana",
             "bairros": [
@@ -91,6 +94,18 @@
     },
     {
         "linha": "EDMUNDO TREIN SAO JOSE",
+        "rotas": [
+            [-28.237216569426966,-52.37420797348023],
+            [-28.237689171634557,-52.37024903297424],
+            [-28.23662108766471,-52.36954092979432],
+            [-28.233492390787696,-52.37106442451478],
+            [-28.233965009491364,-52.3720407485962],
+            [-28.233511295576037,-52.372598648071296],
+            [-28.231970544339646,-52.37169742584229],
+            [-28.23722602149164,-52.365614175796516],
+            [-28.232414812316073,-52.36651539802552],
+            [-28.232414812316073,-52.36651539802552]
+        ],
         "dias": {
             "nome": "Dias de Semana",
             "bairros": [
@@ -182,6 +197,9 @@
     },
     {
         "linha": "JERONIMO COELHO UPF UNIVERSIDADE",
+        "rotas": [
+            []
+        ],
         "dias": {
             "nome": "Dias de Semana",
             "bairros": [
@@ -261,95 +279,5 @@
             ]
         }
 
-    },
-    {
-        "linha": "UNIVERSIDADE UPF VILA LUIZA",
-        "dias": {
-            "nome": "Dias de Semana",
-            "bairros": [
-                {
-                    "nome": "Vila Luiza",
-                    "horarios": [
-                        "06:15",
-                        "06:41",
-                        "07:07"
-                    ]
-                },
-                {
-                    "nome": "Centro",
-                    "horarios": [
-                        "06:30",
-                        "06:56",
-                        "07:22"
-                    ]
-                },
-                {
-                    "nome": "UPF",
-                    "horarios": [
-                        "06:56",
-                        "07:22",
-                        "07:48"
-                    ]
-                }
-            ]
-        },
-        "sabados": {
-            "nome": "Sabado",
-            "bairros": [
-                {
-                    "nome": "Vila Luiza",
-                    "horarios": [
-                        "06:34",
-                        "07:08",
-                        "07:42"
-                    ]
-                },
-                {
-                    "nome": "Centro",
-                    "horarios": [
-                        "06:48",
-                        "07:22",
-                        "07:56"
-                    ]
-                },
-                {
-                    "nome": "UPF",
-                    "horarios": [
-                        "07:08",
-                        "07:42",
-                        "08:16"
-                    ]
-                }
-            ]
-        },
-        "domingos_feriados": {
-            "nome": "Domingo e Feriado",
-            "bairros": [
-                {
-                    "nome": "Vila Luiza",
-                    "horarios": [
-                       "06:36",
-                       "07:24",
-                       "08:12"
-                    ]
-                },
-                {
-                    "nome": "Centro",
-                    "horarios": [
-                        "06:49",
-                        "07:37",
-                        "08:25"
-                    ]
-                },
-                {
-                    "nome": "UPF",
-                    "horarios": [
-                        "07:00",
-                        "07:48",
-                        "08:36"
-                    ]
-                }
-            ]
-        }
     }
 ]
