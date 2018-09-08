@@ -50,6 +50,7 @@ app.get('/api/buscalinhas/:linha', function (req, res, next) {
     console.log("Deu certo a busca pela linha pedida!");
 
     let linha = req.params.linha;
+    console.log("Entrou na função busca especificando uma linha");
     let acentos = {
         a: /[\xE0-\xE6]/g,
         A: /[\xC0-\xC6]/g,
@@ -83,8 +84,8 @@ app.get('/api/buscalinhas/:linha', function (req, res, next) {
    
     
 
-    if (bus2 != null && bus2 != undefined && bus2.trim() != "" && bus2.length > 0) {
-        res.json(bus2);
+    if (bus2 != null && bus2 != undefined && bus2.length >0) {
+        res.status(200).json(bus2);
     } else {
         res.status(404).json("Error");
     }
