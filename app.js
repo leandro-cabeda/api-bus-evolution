@@ -30,37 +30,27 @@ app.listen(port, function () {
     console.log("Servidor rodando na porta:  "+port);
 });
 
-app.get('/', function (req, res) {
+app.get('/', function (req, res, next) {
     console.log("Deu certo o inicio!");
     res.json("funcionou!!");
     
 });
 
-const v=[
-    {
-        "linha":"VERA CRUZ SAO CRISTOVAO"
-    },
-    {
-        "linha": "UNIVERSIDADE UPF VILALUIZA"
-    },
-    {
-        "linha": "JERONIMOCOELHO UPF UNIVERSIDADE"
-    }
-];
+app.get('/api', function (req, res, next) {
+    console.log("API certo!");
+    res.json("Bem vindo link API!!!");
+});
 
 app.get('/api/buscalinhas', function (req, res){
     console.log("Deu certo a busca de linhas!");
     res.json(data);
 });
 
-app.get('/api', function (req, res) {
-    console.log("API certo!");
-    res.json("Bem vindo link API!!!");
-});
-
-app.get('/api/buscalinhas/:linha', function (req, res) {
+app.get('/api/buscalinhas/:linha', function (req, res, next) {
     console.log("Deu certo a busca pela linha pedida!");
-    var acentos = {
+
+    let linha = req.params.linha;
+    let acentos = {
         a: /[\xE0-\xE6]/g,
         A: /[\xC0-\xC6]/g,
         e: /[\xE8-\xEB]/g,
@@ -77,30 +67,26 @@ app.get('/api/buscalinhas/:linha', function (req, res) {
         N: /\xD1/g
     };
 
-    
-    let linha = req.params.linha;
-
-    while (linha.indexOf(" ") != -1)
-    {
-        linha = linha.replace(" ", "");
-    }
-
-
     for (let i in acentos) {
-       
-        linha = linha.replace(acentos[i],i);
-    }
-  
-    console.log("Linha que veio do parametro: " + linha);
 
-    let bus = data.filter(i=> i.linha.toLocaleUpperCase().indexOf(linha.toLocaleUpperCase()) > -1);
-    //let bus = JSON.stringify(data.find(i => i.linha.includes(linha)));
+        linha = linha.replace(acentos[i], i);
+    }
+
+
+       let bus2 = data.filter((item) => {
+            if (item.linha.toUpperCase().includes(linha.toUpperCase())) {
+
+                return (item.linha.toUpperCase());
+            }
+
+        });
+   
     
 
-    if (bus != null && bus != undefined && bus !="") {
-        res.json(bus);
+    if (bus2 != null && bus2 != undefined && bus2.trim() != "" && bus2.length > 0) {
+        res.json(bus2);
     } else {
-        res.status(401).json("Não foi encontrado nenhuma linha com esse nome!!");
+        res.status(404).json("Error");
     }
 
 });
